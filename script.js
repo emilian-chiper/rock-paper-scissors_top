@@ -16,3 +16,7 @@ const getHumanChoice = function () {
 };
 
 console.log(getHumanChoice());
+
+// 3. Declare the players score variables
+const humanScore = 0,
+  computerScore = 0;
