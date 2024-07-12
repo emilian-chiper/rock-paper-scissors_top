@@ -6,5 +6,42 @@
     <script defer src="./script.js"></script>
     <title>ROCK-PAPER-SCISSORS</title>
   </head>
-  <body></body>
+  <body>
+    <div class="wrapper __col">
+      <div class="screen __col">
+        <div class="player-options">
+          <div class="option __col">
+            <img
+              src="./src/img/questionmark.svg"
+              alt="Questionmark sign"
+              class="__human __choice"
+            />
+            <p class="__human __text">
+              Human: <span class="__human __score">0</span>
+            </p>
+          </div>
+
+          <p>vs.</p>
+
+          <div class="option __col">
+            <img
+              src="./src/img/questionmark.svg"
+              alt="Questionmark sign"
+              class="__computer __choice"
+            />
+            <p class="__human __text">
+              Computer: <span class="__computer __score">0</span>
+            </p>
+          </div>
+        </div>
+        <p class="prompt">MAKE YOUR CHOICE!</p>
+      </div>
+      <div class="buttons">
+        <button class="rock __play"></button>
+        <button class="paper __play"></button>
+        <button class="scissors __play"></button>
+        <div class="reset">RESET</div>
+      </div>
+    </div>
+  </body>
 </html>
