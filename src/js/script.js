@@ -49,7 +49,24 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log(computerChoice);
       return computerChoice;
     };
-    getComputerChoice();
+    // getComputerChoice();
+
+    // DETERMINING WINNER
+    const determineWinner = function (humanChoice, computerChoice) {
+      const result =
+        humanChoice === computerChoice
+          ? "It's a tie!"
+          : winningCases[humanChoice] === computerChoice
+          ? "You win"
+          : "Computer wins!";
+      console.log(
+        `Human choice: ${humanChoice}, ComputerChoice: ${computerChoice}, Result: ${result}`
+      );
+      return result;
+    };
+    // determineWinner("rock", "paper");
+    // determineWinner("scissors", "paper");
+    // determineWinner("rock", "rock");
   };
 
   main();
