@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const playButtons = [...document.querySelectorAll(".__play")];
 
+    const resetButtonElement = document.querySelector(".reset");
+
     // CHOICES & WINNING CASES
     const choices = [
       { element: playButtons[0], name: "rock" },
@@ -75,6 +77,16 @@ document.addEventListener("DOMContentLoaded", function () {
       promptElement.textContent = prompt || "Make your choice ...";
     };
 
+    // SET INITIAL DISPLAY
+    const setInitialDisplay = function (state) {
+      updateDisplay(
+        state,
+        "questionmark",
+        "questionmark",
+        "Make your choice..."
+      );
+    };
+
     // INITIALIZE GAME
     const init = function () {
       const state = {
@@ -107,6 +119,15 @@ document.addEventListener("DOMContentLoaded", function () {
         choices.forEach((choice) => (choice.element.disabled = isGameOver));
       };
 
+      // RESET GAME
+      const resetGame = function () {
+        state.humanScore = 0;
+        state.computerScore = 0;
+        state.rounds = 1;
+        setInitialDisplay(state);
+        choices.forEach((choice) => (choice.element.disabled = false));
+      };
+
       // EVENT LISTENERS FOR GAMEPLAY BUTTONS
       const attachEventListeners = function () {
         playButtons.forEach((btn, i) => {
@@ -115,9 +136,12 @@ document.addEventListener("DOMContentLoaded", function () {
             playGame(humanChoice);
           });
         });
+
+        resetButtonElement.addEventListener("click", resetGame);
       };
 
       attachEventListeners();
+      setInitialDisplay(state);
     };
 
     init();
