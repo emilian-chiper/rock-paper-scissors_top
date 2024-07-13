@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       // EVENT LISTENERS FOR GAMEPLAY BUTTONS
-      playButtons.forEach((btn, i) => {
+      const attachEventListeners = playButtons.forEach((btn, i) => {
         btn.addEventListener("click", function () {
           const humanChoice = choices[i].name;
           playGame(humanChoice);
