@@ -41,6 +41,15 @@ document.addEventListener("DOMContentLoaded", function () {
       scissors: "paper",
     };
     console.log(winningCases);
+
+    // COMPUTER CHOICE
+    const getComputerChoice = function () {
+      const randomIndex = Math.floor(Math.random() * choices.length);
+      const computerChoice = choices[randomIndex].name;
+      console.log(computerChoice);
+      return computerChoice;
+    };
+    getComputerChoice();
   };
 
   main();
