@@ -104,6 +104,18 @@ document.addEventListener("DOMContentLoaded", function () {
     //   "rock",
     //   "It's a tie!"
     // );
+
+    // INITIALIZE GAME
+    const init = function () {
+      const state = {
+        humanScore: 0,
+        computerScore: 0,
+        rounds: 1,
+      };
+      console.log(state);
+    };
+
+    init();
   };
 
   main();
