@@ -16,10 +16,18 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(roundsElement);
 
     const choiceElements = [...document.querySelectorAll(".__choice")];
-    console.log(choiceElements);
+    const [humanChoiceElement, computerChoiceElement] = [
+      choiceElements[0],
+      choiceElements[1],
+    ];
+    console.log(choiceElements, humanChoiceElement, computerChoiceElement);
 
     const scoreElements = [...document.querySelectorAll(".__score")];
-    console.log(scoreElements);
+    const [humanScoreElement, computerScoreElement] = [
+      scoreElements[0],
+      scoreElements[1],
+    ];
+    console.log(scoreElements, humanScoreElement, computerScoreElement);
 
     const promptElement = document.querySelector(".prompt");
     console.log(promptElement);
@@ -67,6 +75,35 @@ document.addEventListener("DOMContentLoaded", function () {
     // determineWinner("rock", "paper");
     // determineWinner("scissors", "paper");
     // determineWinner("rock", "rock");
+
+    // UPDATING DISPLAY
+    const updateDisplay = function (
+      state,
+      humanChoice,
+      computerChoice,
+      prompt
+    ) {
+      roundsElement.textContent = `Round: ${state.rounds}`;
+
+      humanChoiceElement.src = `./src/img/${humanChoice}.svg`;
+      humanScoreElement.textContent = state.humanScore;
+
+      computerChoiceElement.src = `./src/img/${computerChoice}.svg`;
+      computerScoreElement.textContent = state.computerScore;
+
+      console.log("Updated display:", {
+        humanChoice,
+        computerChoice,
+        prompt,
+        state,
+      });
+    };
+    // updateDisplay(
+    //   { humanScore: 1, computerScore: 2, rounds: 3 },
+    //   "rock",
+    //   "rock",
+    //   "It's a tie!"
+    // );
   };
 
   main();
