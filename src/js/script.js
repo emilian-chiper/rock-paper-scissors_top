@@ -2,11 +2,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   const main = function () {
-    // Choices
-    const ROCK = "rock";
-    const PAPER = "paper";
-    const SCISSORS = "scissors";
-
     // DOM ELEMENTS
     const roundsElement = document.querySelector(".rounds");
 
