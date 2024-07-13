@@ -108,12 +108,16 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       // EVENT LISTENERS FOR GAMEPLAY BUTTONS
-      const attachEventListeners = playButtons.forEach((btn, i) => {
-        btn.addEventListener("click", function () {
-          const humanChoice = choices[i].name;
-          playGame(humanChoice);
+      const attachEventListeners = function () {
+        playButtons.forEach((btn, i) => {
+          btn.addEventListener("click", function () {
+            const humanChoice = choices[i].name;
+            playGame(humanChoice);
+          });
         });
-      });
+      };
+
+      attachEventListeners();
     };
 
     init();
