@@ -1,0 +1,119 @@
+/* Import FONTS */
+@import url(https://fonts.bunny.net/css?family=albert-sans:400,900);
+
+/* CSS Variables */
+:root {
+  --border: 15px;
+  --main-bg: linear-gradient(135deg, #00aaff, #00ffaa, #ffcc00, #ff6600);
+  --secondary-bg: linear-gradient(135deg, #f7c6d9, #d2a6c0, #c7a47b, #8b5e34);
+  --main-dark: #0b0214;
+  --secondary-dark: #020b14;
+  --dark-highlight: 2px 2px 2px #0b223a inset;
+}
+
+/* GENERAL ELEMENTS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--main-bg);
+  font-family: "Albert Sans", sans-serif;
+}
+
+/* BASE ELEMENTS */
+img {
+  width: 200px;
+  height: 200px;
+}
+
+button {
+  border: none;
+  border-radius: var(--border);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-dark);
+  color: white;
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  box-shadow: var(--dark-highlight);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #ec8937, #ac3a18);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 5px 4px 2px black inset;
+}
+
+button img {
+  width: 2rem;
+  height: 2rem;
+  transform: translateY(-2px);
+}
+
+/* STRUCTURAL ELEMENTS */
+.__col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  border-radius: var(--border);
+  padding: 1em;
+  background: var(--secondary-bg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 20px 30px rgba(0, 0, 0, 0.15),
+    inset 0 -5px 10px rgba(0, 0, 0, 0.1);
+  transform: translate(-2.1rem, -2ex);
+}
+
+.screen {
+  border-radius: var(--border);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: white;
+  background-color: var(--main-dark);
+  box-shadow: var(--dark-highlight);
+  padding: 1em;
+  text-align: center;
+}
+
+.player-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+}
+
+.prompt {
+  margin: 1rem;
+}
+
+.buttons {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
