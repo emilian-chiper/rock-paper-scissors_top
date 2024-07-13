@@ -26,6 +26,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const playButtons = [...document.querySelectorAll(".__play")];
     console.log(playButtons);
+
+    // CHOICES & WINNING CASES
+    const choices = [
+      { element: playButtons[0], name: "rock" },
+      { element: playButtons[1], name: "paper" },
+      { element: playButtons[2], name: "scissors" },
+    ];
+    console.log(choices);
+
+    const winningCases = {
+      rock: "scissors",
+      paper: "rock",
+      scissors: "paper",
+    };
+    console.log(winningCases);
   };
 
   main();
