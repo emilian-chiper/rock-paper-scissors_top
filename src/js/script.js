@@ -93,6 +93,18 @@ document.addEventListener("DOMContentLoaded", function () {
         state.rounds += 1;
 
         updateDisplay(state, humanChoice, computerChoice, resultPrompt);
+
+        // Best-Of-5
+        const isGameOver = state.rounds === 5;
+        if (isGameOver)
+          promptElement.textContent =
+            state.humanScore > state.computerScore
+              ? "You win the match!"
+              : state.humanScore < state.computerScore
+              ? "Computer wins the match!"
+              : "The match is undecided";
+
+        choices.forEach((choice) => (choice.element.disabled = isGameOver));
       };
 
       // EVENT LISTENERS FOR GAMEPLAY BUTTONS
