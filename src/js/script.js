@@ -113,6 +113,22 @@ document.addEventListener("DOMContentLoaded", function () {
         rounds: 1,
       };
       console.log(state);
+
+      // GAMEPLAY FUNCTIONALITY
+      const playGame = function (humanChoice) {
+        const computerChoice = getComputerChoice();
+        const resultPrompt = determineWinner(humanChoice, computerChoice);
+
+        state.humanScore += resultPrompt === "You win" ? 1 : 0;
+        state.computerScore += resultPrompt === "Computer wins" ? 1 : 0;
+        state.rounds += 1;
+
+        updateDisplay(state, humanChoice, computerChoice, resultPrompt);
+      };
+
+      // playGame("rock");
+      // playGame("paper");
+      // playGame("scissors");
     };
 
     init();
