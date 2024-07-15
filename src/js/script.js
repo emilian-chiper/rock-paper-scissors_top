@@ -1,49 +1,84 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
+  /**
+   * Main function to initialize the game
+   */
   const main = function () {
     // DOM ELEMENTS
+    /**
+     * @type {HTMLElement} Element displaying the number of rounds
+     */
     const roundsElement = document.querySelector(".rounds");
 
+    /**
+     * @type {HTMLElement[]} Elements displaying the choices
+     */
     const choiceElements = [...document.querySelectorAll(".__choice")];
     const [humanChoiceElement, computerChoiceElement] = [
       choiceElements[0],
       choiceElements[1],
     ];
 
+    /**
+     * @type {HTMLElement[]} Elements displaying the scores
+     */
     const scoreElements = [...document.querySelectorAll(".__score")];
     const [humanScoreElement, computerScoreElement] = [
       scoreElements[0],
       scoreElements[1],
     ];
 
+    /**
+     * @type {HTMLElement} Element displaying the game prompt
+     */
     const promptElement = document.querySelector(".prompt");
 
+    /**
+     * @type {HTMLElement[]} Elements for the play buttons
+     */
     const playButtons = [...document.querySelectorAll(".__play")];
 
+    /**
+     * @type {HTMLElement} Element for the reset button
+     */
     const resetButtonElement = document.querySelector(".reset");
 
     // CHOICES & WINNING CASES
+    /**
+     * @type {{element: HTMLElement, name: string}[]} Choices and their respective elements
+     */
     const choices = [
       { element: playButtons[0], name: "rock" },
       { element: playButtons[1], name: "paper" },
       { element: playButtons[2], name: "scissors" },
     ];
 
+    /**
+     * @type {Object<string, string>} Mapping of choices to what they beat
+     */
     const winningCases = {
       rock: "scissors",
       paper: "rock",
       scissors: "paper",
     };
 
-    // COMPUTER CHOICE
+    /**
+     * Get a random choice for the computer
+     * @returns {string} The computer's choice
+     */
     const getComputerChoice = function () {
       const randomIndex = Math.floor(Math.random() * choices.length);
       const computerChoice = choices[randomIndex].name;
       return computerChoice;
     };
 
-    // DETERMINING WINNER
+    /**
+     * Determine the winner based on choices
+     * @param {string} humanChoice - The human's choice
+     * @param {string} computerChoice - The computer's choice
+     * @returns {string} Result of the game round
+     */
     const determineWinner = function (humanChoice, computerChoice) {
       const result =
         humanChoice === computerChoice
@@ -54,7 +89,13 @@ document.addEventListener("DOMContentLoaded", function () {
       return result;
     };
 
-    // UPDATING DISPLAY
+    /**
+     * Update the game display
+     * @param {Object} state - The current game state
+     * @param {string} humanChoice - The human's choice
+     * @param {string} computerChoice - The computer's choice
+     * @param {string} prompt - The prompt to display
+     */
     const updateDisplay = function (
       state,
       humanChoice,
@@ -72,7 +113,10 @@ document.addEventListener("DOMContentLoaded", function () {
       promptElement.textContent = prompt || "Make your choice ...";
     };
 
-    // SET INITIAL DISPLAY
+    /**
+     * Set the initial display state
+     * @param {Object} state - The current game state
+     */
     const setInitialDisplay = function (state) {
       updateDisplay(
         state,
@@ -82,15 +126,26 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     };
 
-    // INITIALIZE GAME
+    /**
+     * Initialize the game state and event listeners
+     */
     const init = function () {
+      /**
+       * @type {Object} Initial game state
+       * @property {number} humanScore - The human's score
+       * @property {number} computerScore - The computer's score
+       * @property {number} rounds - The number of rounds played
+       */
       const state = {
         humanScore: 0,
         computerScore: 0,
         rounds: 1,
       };
 
-      // GAMEPLAY FUNCTIONALITY
+      /**
+       * Play a round of the game
+       * @param {string} humanChoice - The human's choice
+       */
       const playGame = function (humanChoice) {
         const computerChoice = getComputerChoice();
         const resultPrompt = determineWinner(humanChoice, computerChoice);
@@ -114,7 +169,9 @@ document.addEventListener("DOMContentLoaded", function () {
         choices.forEach((choice) => (choice.element.disabled = isGameOver));
       };
 
-      // RESET GAME
+      /**
+       * Reset the game to its initial state
+       */
       const resetGame = function () {
         state.humanScore = 0;
         state.computerScore = 0;
@@ -123,7 +180,9 @@ document.addEventListener("DOMContentLoaded", function () {
         choices.forEach((choice) => (choice.element.disabled = false));
       };
 
-      // EVENT LISTENERS FOR GAMEPLAY BUTTONS
+      /**
+       * Attach event listeners to the play and reset buttons
+       */
       const attachEventListeners = function () {
         playButtons.forEach((btn, i) => {
           btn.addEventListener("click", function () {
