@@ -3,7 +3,7 @@
 This is a simple Rock-Paper-Scissors game implemented in JavaScript. The game is played against the computer, and the winner is determined after 5 rounds. The project is part of the Foundations track of The Odin Project.
 
 ## DEPLOYMENT
-[LIVE]([URL](https://rochambo-app.netlify.app/))
+[LIVE](https://rochambo-app.netlify.app/)
 
 ## Game Rules
 
